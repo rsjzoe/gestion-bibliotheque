@@ -4,11 +4,14 @@
 <head>
     <title>Edit Book</title>
     <style>
+        *{
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
             margin: 0;
-            padding: 20px;
+            /* padding: 20px; */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -37,7 +40,7 @@
         }
 
         label {
-            font-size: 16px;
+            font-size: 15px;
             margin-bottom: 5px;
             color: #495057;
         }
@@ -45,10 +48,10 @@
         input,
         select {
             padding: 10px;
-            font-size: 16px;
+            /* font-size: 16px; */
             border-radius: 4px;
             border: 1px solid #ced4da;
-            margin-bottom: 20px;
+            margin-bottom: -22px;
             outline: none;
             transition: border-color 0.3s ease;
         }

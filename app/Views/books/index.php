@@ -74,17 +74,27 @@
             display: flex;
             gap: 10px;
         }
-
+        .actions .edit{
+            background-color: #4caf50;
+        }
+        .actions .delete{
+            background-color: #ee4646;
+        }
         .actions a {
             text-decoration: none;
-            color: #007bff;
+            color: #fff;
             padding: 5px 10px;
+            font-size: 15px;
             border-radius: 4px;
             transition: background-color 0.3s ease;
         }
 
-        .actions a:hover {
-            background-color: #0056b3;
+        .actions .edit:hover {
+            background-color: #b2ec99;
+            color: #ffffff;
+        }
+        .actions .delete:hover {
+            background-color: #ee7676;
             color: #ffffff;
         }
     </style>
@@ -97,12 +107,15 @@
         <ul>
             <?php foreach ($books as $book): ?>
                 <li>
-                    <span class="<?= $book['isborrow'] ? 'text-red' : '' ?>">
-                        <?= $book['title'] ?>
-                    </span>
+
+                        <span class="<?= $book['isborrow'] ? 'text-red' : '' ?>">
+                            <?= $book['title'] ?> 
+                        </span>
+
+                    
                     <div class="actions">
-                        <a href="<?= site_url('books/edit/' . $book['id']) ?>">Modifier</a>
-                        <a href="<?= site_url('books/delete/' . $book['id']) ?>" onclick="return confirm('ho fafaina ve?');">Supprimer</a>
+                        <a href="<?= site_url('books/edit/' . $book['id']) ?>" class="edit">Modifier</a>
+                        <a href="<?= site_url('books/delete/' . $book['id']) ?>"  class="delete" onclick="return confirm('ho fafaina ve?');">Supprimer</a>
                     </div>
                 </li>
             <?php endforeach; ?>

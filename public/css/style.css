@@ -55,6 +55,13 @@ body {
   border: 1px solid #cccccc;
   font-size: 14px;
 }
+a{
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  color: #007bff;
+}
 
 /* Style du bouton */
 button {
