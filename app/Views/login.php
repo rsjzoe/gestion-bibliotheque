@@ -17,7 +17,7 @@
                     <?= session()->getFlashdata('errorLogin') ?>
                 </div>
             <?php endif; ?>
-    
+
             <form class="form" method="post" action="login">
                 <h2>Connexion</h2>
                 <div class="input-group">
