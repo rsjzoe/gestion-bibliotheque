@@ -1,5 +1,7 @@
 # CodeIgniter 4 Application Starter
 
+> il faut executer le fichier `app/Database/migrations/execute.sql` avant de lancer le projet
+
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
