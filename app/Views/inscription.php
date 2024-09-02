@@ -12,6 +12,11 @@
     <div class="form-center">
 
         <div class="form-container">
+            <?php if (session()->getFlashdata('errorInscription')) : ?>
+                <div class="error-message">
+                    <?= session()->getFlashdata('errorInscription') ?>
+                </div>
+            <?php endif; ?>
             <form class="form" method="post" action="inscription">
                 <h2>Inscription</h2>
                 <div class="input-group">

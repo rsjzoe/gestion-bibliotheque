@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             background-color: #ffffff;
@@ -45,24 +46,26 @@
             background-color: #0056b3;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        li {
-            background-color: #e9ecef;
-            margin: 10px 0;
-            border-radius: 4px;
-            padding: 10px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
 
-        li:hover {
-            background-color: #ced4da;
+        th {
+            background-color: #ffffff;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
         }
 
         .text-red {
@@ -74,12 +77,15 @@
             display: flex;
             gap: 10px;
         }
-        .actions .edit{
+
+        .actions .edit {
             background-color: #4caf50;
         }
-        .actions .delete{
+
+        .actions .delete {
             background-color: #ee4646;
         }
+
         .actions a {
             text-decoration: none;
             color: #fff;
@@ -93,34 +99,86 @@
             background-color: #b2ec99;
             color: #ffffff;
         }
+
         .actions .delete:hover {
             background-color: #ee7676;
             color: #ffffff;
         }
+
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .badge-dispo {
+            background-color: #4caf50;
+            border-radius: 15px;
+            color: white;
+            font-weight: normal;
+            font-size: 13px;
+            padding: 3px;
+        }
+
+        .badge-nondispo {
+            background-color: #0057B4;
+            border-radius: 15px;
+            color: white;
+            font-weight: normal;
+            font-size: 13px;
+            padding: 3px;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="container">
         <h1>Livres</h1>
+        <div class="search-bar">
+            <form action="<?= site_url('books') ?>" method="get">
+                <input type="text" name="search" placeholder="recherche un livre..." value="<?= esc($search) ?>">
+            </form>
+        </div>
         <a class="btn-add-book" href="<?= site_url('books/create') ?>">Ajouter</a>
-        <ul>
-            <?php foreach ($books as $book): ?>
-                <li>
-
-                        <span class="<?= $book['isborrow'] ? 'text-red' : '' ?>">
-                            <?= $book['title'] ?> 
-                        </span>
-
-                    
-                    <div class="actions">
-                        <a href="<?= site_url('books/edit/' . $book['id']) ?>" class="edit">Modifier</a>
-                        <a href="<?= site_url('books/delete/' . $book['id']) ?>"  class="delete" onclick="return confirm('ho fafaina ve?');">Supprimer</a>
-                    </div>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($books as $book): ?>
+                    <tr>
+                        <td>
+                            <?= esc($book['title']) ?>
+                            <?php if ($book['isborrow']) : ?>
+                                <span class="badge badge-nondispo">non dispo</span>
+                            <?php else : ?>
+                                <span class="badge badge-dispo">dispo</span>
+                            <?php endif; ?>
+                        </td>
+                        <td>
+                            <div class="actions">
+                                <a href="<?= site_url('books/edit/' . $book['id']) ?>" class="edit">Modifier</a>
+                                <a href="<?= site_url('books/delete/' . $book['id']) ?>" class="delete" onclick="return confirm('ho fafaina ve?');">Supprimer</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
 
 </body>
+
 </html>

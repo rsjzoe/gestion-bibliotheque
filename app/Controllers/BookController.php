@@ -9,9 +9,17 @@ class BookController extends BaseController
 {
     public function index()
     {
+        $search = $this->request->getGet('search');
         $model = new BookModel();
+        if ($search) {
+            $books = $model->like('title', $search)->findAll();
+        } else {
+            $books = $model->findAll();
+        }
+    
         return view('books/index', [
-            "books" => $model->findAll()
+            'books' => $books,
+            'search' => $search
         ]);
     }
 
