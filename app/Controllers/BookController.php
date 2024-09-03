@@ -12,11 +12,17 @@ class BookController extends BaseController
         $search = $this->request->getGet('search');
         $model = new BookModel();
         if ($search) {
-            $books = $model->like('title', $search)->findAll();
+            $books = $model
+                ->select('book.*, author.name as author_name')
+                ->join('author', 'author.id = book.author_id')
+                ->like('book.title', $search)
+                ->findAll();
         } else {
-            $books = $model->findAll();
+            $books = $model
+                ->select('book.*, author.name as author_name')
+                ->join('author', 'author.id = book.author_id')
+                ->findAll();
         }
-    
         return view('books/index', [
             'books' => $books,
             'search' => $search
