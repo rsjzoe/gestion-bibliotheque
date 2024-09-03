@@ -153,6 +153,7 @@
             <thead>
                 <tr>
                     <th>Titre</th>
+                    <th>Auteur</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -167,6 +168,7 @@
                                 <span class="badge badge-dispo">dispo</span>
                             <?php endif; ?>
                         </td>
+                        <td><?= esc($book['author_name']) ?></td>
                         <td>
                             <div class="actions">
                                 <a href="<?= site_url('books/edit/' . $book['id']) ?>" class="edit">Modifier</a>

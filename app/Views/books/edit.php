@@ -47,10 +47,9 @@
         input,
         select {
             padding: 10px;
-            /* font-size: 16px; */
             border-radius: 4px;
             border: 1px solid #ced4da;
-            margin-bottom: -22px;
+            margin-bottom: 20px;
             outline: none;
             transition: border-color 0.3s ease;
         }
