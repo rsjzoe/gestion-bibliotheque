@@ -145,7 +145,7 @@
         <h1>Livres</h1>
         <div class="search-bar">
             <form action="<?= site_url('books') ?>" method="get">
-                <input type="text" name="search" placeholder="recherche un livre..." value="<?= esc($search) ?>">
+                <input type="text" name="search" placeholder="recherche un livre puis entrer..." value="<?= esc($search) ?>">
             </form>
         </div>
         <a class="btn-add-book" href="<?= site_url('books/create') ?>">Ajouter</a>
