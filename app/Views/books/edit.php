@@ -4,9 +4,10 @@
 <head>
     <title>Edit Book</title>
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
@@ -18,12 +19,14 @@
         }
 
         .container {
+            margin-bottom: auto;
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px 40px;
             max-width: 400px;
             width: 100%;
+            
         }
 
         h1 {
@@ -46,12 +49,13 @@
 
         input,
         select {
-            padding: 10px;
+            padding: 2px;
+            height: 35px;
             border-radius: 4px;
             border: 1px solid #ced4da;
-            margin-bottom: 20px;
+            margin-bottom: -22px;
             outline: none;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s eas
         }
 
         input:focus,
@@ -116,7 +120,7 @@
             <label for="isborrow">Emprunt(true/false):</label>
             <input type="text" name="isborrow" id="isborrow" value="<?= esc($book['isborrow']) ?>" required><br><br>
 
-            <button type="submit">Mise à jour</button>
+            <button type="submit">Mettre à jour</button>
         </form>
 
         <br>

@@ -44,8 +44,8 @@
 
         input,
         select {
-            padding: 10px;
-            /* font-size: 16px; */
+            padding: 2px;
+            height: 35px;
             border-radius: 4px;
             border: 1px solid #ced4da;
             margin-bottom: -22px;
