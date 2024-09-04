@@ -44,11 +44,9 @@
 
         input,
         select {
-            padding: 2px;
-            height: 35px;
+            padding: 9px;
             border-radius: 4px;
             border: 1px solid #ced4da;
-            margin-bottom: -22px;
             outline: none;
             transition: border-color 0.3s ease;
         }
@@ -97,20 +95,20 @@
             <?= csrf_field() ?>
 
             <label for="title">Titre:</label>
-            <input type="text" name="title" id="title" required><br><br>
+            <input type="text" name="title" id="title" required><br>
 
             <label for="author_id">Auteur:</label>
             <select name="author_id" id="author_id" required>
                 <?php foreach ($authors as $author): ?>
                     <option value="<?= $author['id'] ?>"><?= $author['name'] ?></option>
                 <?php endforeach; ?>
-            </select><br><br>
+            </select><br>
 
             <label for="published_date">Date:</label>
-            <input type="date" name="published_date" id="published_date" required><br><br>
+            <input type="date" name="published_date" id="published_date" required><br>
 
             <label for="isborrow">Emprunt (true/false):</label>
-            <input type="text" name="isborrow" id="isborrow" required><br><br>
+            <input type="text" name="isborrow" id="isborrow" required><br>
 
             <button type="submit">Creer</button>
         </form>

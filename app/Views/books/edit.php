@@ -49,11 +49,10 @@
 
         input,
         select {
-            padding: 2px;
+            padding: 4px;
             height: 35px;
             border-radius: 4px;
             border: 1px solid #ced4da;
-            margin-bottom: -22px;
             outline: none;
             transition: border-color 0.3s eas
         }
@@ -103,7 +102,7 @@
             <?= csrf_field() ?>
 
             <label for="title">Titre:</label>
-            <input type="text" name="title" id="title" value="<?= esc($book['title']) ?>" required><br><br>
+            <input type="text" name="title" id="title" value="<?= esc($book['title']) ?>" required><br>
 
             <label for="author_id">Auteur:</label>
             <select name="author_id" id="author_id" required>
@@ -112,7 +111,7 @@
                         <?= esc($author['name']) ?>
                     </option>
                 <?php endforeach; ?>
-            </select><br><br>
+            </select><br>
 
             <label for="published_date">Date:</label>
             <input type="date" name="published_date" id="published_date" value="<?= esc($book['published_date']) ?>" required><br><br>
