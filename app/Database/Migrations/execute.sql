@@ -1,5 +1,7 @@
 CREATE DATABASE `bibliotheque` ;
 
+USE bibliotheque;
+
 CREATE TABLE `admin` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
